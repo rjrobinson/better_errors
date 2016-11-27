@@ -6,8 +6,8 @@ module BetterErrors
     def initialize(exception)
       if exception.respond_to?(:cause)
         exception = exception.cause if exception.cause
-      elsif exception.respond_to?(:original_exception) && exception.original_exception
-        exception = exception.original_exception
+      elsif exception.respond_to?(:cause) && exception.cause
+        exception = exception.cause
       end
 
       @exception = exception
